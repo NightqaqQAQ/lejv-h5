@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "973499",
+      "name": "Triangle-down",
+      "font_class": "triangledown",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "973501",
+      "name": "Triangle-right",
+      "font_class": "triangleright",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    }
+  ]
+}

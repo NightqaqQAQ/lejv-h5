@@ -1,16 +1,48 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <transition :enter-active-class="currentClass">
+      <router-view />
+    </transition>
+    <FooterBar v-if="$route.meta.isFooterBar"></FooterBar>
   </div>
 </template>
-
+<script>
+import FooterBar from "@/components/FooterBar";
+export default {
+  components: {
+    FooterBar
+  },
+  data() {
+    return {
+      currentClass: ""
+    };
+  },
+  watch: {
+    "$route": function(to, from) {
+      var old = from.path.split("/").length;
+      var current = to.path.split("/").length;
+      // if (current > old) {
+      //   this.currentClass = "animated fadeInRight";
+      // } else if (current == old) {
+        this.currentClass = "animated fadeIn";
+      // } else {
+      //   this.currentClass = "animated fadeInLeft";
+      // }
+    }
+  }
+};
+</script>
 <style lang="scss">
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
